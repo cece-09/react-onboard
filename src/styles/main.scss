@@ -1,0 +1,128 @@
+/* ==== mixin ==== */
+@mixin flex($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: nowrap;
+  &.wrap {
+    flex-wrap: wrap;
+  }
+}
+
+/* ==== common ==== */
+#root {
+  --card-size: 200px;
+}
+main {
+  position: relative;
+  width: 1080px;
+  white-space: none;
+  box-sizing: border-box;
+}
+.column {
+  div {
+    margin-bottom: 0.5rem;
+  }
+  @include flex(column);
+}
+.row {
+  div {
+    margin-right: 0.5rem;
+  }
+  @include flex(row);
+}
+.color-fed3dc {
+  background-color: #fed3dc;
+}
+.color-e2ffe9 {
+  background-color: #e2ffe9;
+}
+.color-fffeaf {
+  background-color: #fffeaf;
+}
+
+/* ==== form ==== */
+.form {
+  div {
+    align-items: center;
+    label {
+      margin-right: 0.5rem;
+    }
+    margin-right: 0.5rem;
+  }
+  div:last-child {
+    margin-right: 0;
+  }
+  input {
+    padding: 0.5rem;
+    border: 1px solid #444;
+    border-radius: 0.5rem;
+  }
+  #button-submit {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0px solid white;
+    color: white;
+    background-color: #444;
+  }
+}
+
+/* ==== radio ==== */
+.radio-group {
+  .radio {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0px solid white;
+  }
+  .selected {
+    border: 1px solid #444;
+  }
+}
+
+/* ==== memo grid ==== */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  &.option-0 {
+    width: var(--card-size);
+  }
+  &.option-1 {
+    width: calc(var(--card-size) * 2 + 20px);
+  }
+  &.option-2 {
+    width: calc(var(--card-size) * 3 + 60px);
+  }
+  & > div {
+    width: var(--card-size);
+    padding: 5px;
+  }
+}
+.memo-card {
+  padding: 1rem;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: space-between;
+  .memo-author {
+    font-size: 0.8rem;
+    color: #444444;
+  }
+}
+
+/* ==== stickers ==== */
+.sticker {
+  position: absolute;
+  z-index: 10;
+  font-size: 2rem;
+}
+
+/* === toast === */
+.toast {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  padding: 0.5rem;
+  background-color: #eee;
+  border-radius: 0.5rem;
+}
